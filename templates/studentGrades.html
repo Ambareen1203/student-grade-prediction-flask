@@ -1,0 +1,59 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+
+<div class="card-wrapper">
+
+    <div class="card">
+
+        <h2 class="center"> Non-Exam Assessment Grades</h2>
+
+        <p>                   
+            <strong>1st assessment weighted_grade:</strong> {{ session['user']['tma1'] }}<br>
+            <strong>2nd assessment weighted_grade:</strong> {{ session['user']['tma2'] }}<br>
+            <strong>3rd assessment weighted_grade:</strong> {{ session['user']['tma3'] }}<br>
+            <strong>4th assessment weighted_grade:</strong> {{ session['user']['tma4'] }}<br>
+            <strong>5th assessment weighted_grade:</strong> {{ session['user']['tma5'] }}<br>
+            <strong>6th assessment weighted_grade:</strong> {{ session['user']['tma6'] }}<br>
+            {{pred}}
+                         
+
+        </p>
+    </div>
+
+    
+
+
+
+    
+        
+
+        <div class="card">
+
+        <a href=predict1><button class="btn">Predict after you get the grade for first assessment</button></a>
+        <a href=predict2><button class="btn">Predict after you get the grade for second assessment</button></a>
+        <a href=predict3><button class="btn">Predict after you get the grade for third assessment</button></a>
+        <a href=predict4><button class="btn">Predict after you get the grade for fourth assessment</button></a>
+        <a href=predict5><button class="btn">Predict after you get the grade for fifth assessment</button></a>
+        <a href=predict6><button class="btn">Predict after you get the grade for sixth assessment</button></a>
+
+        </div>
+        
+
+
+    </div>
+
+    
+        
+
+        
+        
+
+
+
+    
+
+</div>
+{% endblock %}
+

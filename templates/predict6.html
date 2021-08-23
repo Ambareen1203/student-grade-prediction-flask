@@ -1,0 +1,97 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+
+<div class="card-wrapper">
+
+    <div class="card">
+
+        <h2 class="center"> Non-Exam Assessment Grades</h2>
+
+        <p>                   
+            <strong>1st assessment weighted_grade:</strong> {{ session['user']['tma1'] }}<br>
+            <strong>2nd assessment weighted_grade:</strong> {{ session['user']['tma2'] }}<br>
+            <strong>3rd assessment weighted_grade:</strong> {{ session['user']['tma3'] }}<br>
+            <strong>4th assessment weighted_grade:</strong> {{ session['user']['tma4'] }}<br>
+            <strong>5th assessment weighted_grade:</strong> {{ session['user']['tma5'] }}<br>
+            <strong>6th assessment weighted_grade:</strong> {{ session['user']['tma6'] }}<br>
+            {% if pred == 'Expected final grade will be 7' %}
+                <p style="background-color:rgb(0, 255, 85);"> Distinction, your expected marks is between 90 to 100. </p>
+                {% elif pred == 'Expected final grade will be 6' %}
+                <p style="background-color:rgb(0, 255, 21);"> Distinction, your expected marks is between 80 to 60. </p>
+                {% elif pred == 'Expected final grade will be 5' %}
+                <p style="background-color:rgb(43, 255, 0);"> Distinction, your expected marks is between 70 to 80. </p>
+                {% elif pred == 'Expected final grade will be 4' %}
+                <p style="background-color:rgb(179, 255, 0);"> Pass, your expected marks is between 60 to 70. </p>
+                {% elif pred == 'Expected final grade will be 3' %}
+                <p style="background-color:rgb(255, 217, 0);"> Pass, your expected marks is between 50 to 60. </p>
+                {% elif pred == 'Expected final grade will be 2' %}
+                <p style="background-color:rgb(255, 136, 0);"> Pass, your expected marks is between 40 to 50. </p>
+                {% elif pred == 'Expected final grade will be 1' %}
+                <p style="background-color:rgb(255, 81, 0);"> Fail, your expected marks is between 30 to 40. </p>
+                {% elif pred == 'Expected final grade will be 0' %}
+                <p style="background-color:red; color: aliceblue;"> Fail, your expected marks is between 0 to 30. </p>
+            {% endif %}
+        </p>
+    </div>
+
+    
+
+
+
+    <div class="card">
+        <h1 class="center">Predict your final grade</h1>   
+
+              
+        
+
+        <form action="{{ url_for('predict06')}}"method="POST">
+
+           
+
+            <label for="highest_education">Highest-Education</label>
+            <select id="highest_education" name="highest_education">
+                <option value=1>A Level or above</option>
+                <option value=0>HE Qualifications</option>
+                <option value=2>Lower than A Level</option>
+                
+            </select>          
+
+
+            
+           
+                          
+
+            <label for="imd_band">Imd_Band</label>
+            <select id="imd_band" name="imd_band">
+                <option value=9>0-10 %</option>
+                <option value=8>10-20%</option>
+                <option value=7>20-30%</option>
+                <option value=6>30-40 %</option>
+                <option value=5>40-50 %</option>
+                <option value=4>50-60 %</option>
+                <option value=3>60-70 %</option>
+                <option value=2>70-80 %</option>
+                <option value=1>80-90 %</option>
+                <option value=0>90-100 %</option>
+            </select>
+
+
+              
+
+            <label for="weighted_grade">Calculate the sum of your total weighted grade so far and add it here!</label>
+            <input type="number" name="weighted_grade" class="field">
+             
+
+            <label for="total_click">Add total sum of clicks on VLE so far for this module</label>
+            <input type="number"  name="total_click" class="field">
+           
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+</div>
+   
+
+</div>
+{% endblock %}

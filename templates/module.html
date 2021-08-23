@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-sacle=1.0">
+    <title>Student Grade Prediction on VLE</title>
+
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+<body>
+
+    <div class="card-wrapper">
+        <div class="card">
+            <h1 class="center">Module DDD</h1>
+            <p class="center">Interact with this module by clicking on the "resources" </p>
+
+            <h1 class="center">Resources</h1>
+
+            <script>
+                function clickCounter() {
+                  if (typeof(Storage) !== "undefined") {
+                    if (localStorage.clickcount) {
+                      localStorage.clickcount = Number(localStorage.clickcount)+1;
+                    } else {
+                      localStorage.clickcount = 1;
+                    }
+                    document.getElementById("result").innerHTML = "Total sum of clicks based on your interaction with VLE so far is " + localStorage.clickcount + " time(s).";
+                  } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                  }
+                }
+                </script>
+        
+        <button onclick="clickCounter()" type="button" class="btn">Videos</button>
+        <button onclick="clickCounter()" type="button" class="btn">Forums</button>
+        <button onclick="clickCounter()" type="button" class="btn">Lectures</button>
+        <button onclick="clickCounter()" type="button" class="btn">Quizzes</button>
+        <button onclick="clickCounter()" type="button" class="btn">Glossary</button>
+        <button onclick="clickCounter()" type="button" class="btn">Others</button>
+        <div id="result"></div>
+        
+
+
+        </div>
+
+        
+    
+        <div class="card">
+    
+            <h2 class="center">Do you want to predict your final grade?</h2>
+    
+    
+            <p>When you get your grades from your facilitator, add them here and click on predict.<br>
+                Kindly note that this is just a prediction meant for you to have an idea where you stand, it is not your actual Final grade. <br> 
+            </p>
+            
+            <a href=studentGrades><button class="btn btn--secondary">Add Grades and Predict them</button></a>        
+    
+            
+        </div>
+
+    </div>
+
+
+    
+
+</body>
+</html>
