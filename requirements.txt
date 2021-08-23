@@ -2,6 +2,6 @@ pycaret==2.0.0
 Flask==2.0
 passlib==1.7.4
 uuid==1.30
-bson==1.1.0
+bson==0.5.2
 
 
